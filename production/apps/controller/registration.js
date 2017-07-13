@@ -42,3 +42,39 @@ function UserRegistration()
     });
     return false;
 }
+function UserLogin()
+{
+    var data = $("#LoginForm").serialize();
+    NProgress.start();
+    $.ajax({
+
+        type : 'POST',
+        url  : '../production/apps/API/login.php',
+        data : data,
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+alert(data)
+            if(data==1){
+                NProgress.done();
+
+
+            }
+            else if(data=="registered")
+            {
+                NProgress.done();
+
+
+            }
+            else{
+                NProgress.done();
+
+
+            }
+        }
+    });
+    return false;
+}
