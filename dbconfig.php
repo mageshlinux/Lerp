@@ -1,6 +1,6 @@
 <?php
 
-
+/*test*/
 	$db_host = "localhost";
 	$db_name = "law";
 	$db_user = "root";
