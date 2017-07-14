@@ -45,7 +45,7 @@ function UserRegistration()
 function UserLogin()
 {
     var data = $("#LoginForm").serialize();
-    alert(data)
+
     NProgress.start();
     $.ajax({
 
@@ -58,22 +58,17 @@ function UserLogin()
         },
         success :  function(data)
         {
-alert(data)
-            if(data==1){
-                NProgress.done();
 
+            if(data.length>0){
+                NProgress.done();
+                window.location="dashboard.html";
 
             }
-            else if(data=="registered")
-            {
+
+            else if(data.length==0){
                 NProgress.done();
 
-
-            }
-            else{
-                NProgress.done();
-
-
+                $.notify("Login Mismatch.Either Username or Password is wrong.","info");
             }
         }
     });
