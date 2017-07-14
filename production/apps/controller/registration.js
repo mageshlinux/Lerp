@@ -45,6 +45,7 @@ function UserRegistration()
 function UserLogin()
 {
     var data = $("#LoginForm").serialize();
+    alert(data)
     NProgress.start();
     $.ajax({
 
