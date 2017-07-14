@@ -60,8 +60,9 @@ function UserLogin()
         {
 
             if(data.length>0){
+                sessionStorage.setItem("UserData", data);
                 NProgress.done();
-                window.location="dashboard.html";
+                window.location.href="dashboard.html";
 
             }
 
