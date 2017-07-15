@@ -7,3 +7,9 @@ $(document).ready(function() {
     $("#WelcomeSpan").text(UserData.USERNAME);
     $("#Logspan").text(UserData.USERNAME);
 });
+
+function CallForm()
+{
+    $("#MainContainer").load("apps/view/sample.html");
+    return false;
+}
