@@ -5,6 +5,12 @@ $(document).ready(function() {
     $('#ClientForm').validator();
     $('#client-hearingdate').daterangepicker({
         singleDatePicker: true,
-        startDate: moment()
+        startDate: moment(),
+        locale:{format: 'DD/MMM/YYYY'}
     });
 });
+function SaveClient()
+{
+    var data = $("#ClientForm").serialize();
+    alert(data)
+}
