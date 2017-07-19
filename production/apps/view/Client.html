@@ -25,34 +25,34 @@
                 <form id="ClientForm" data-toggle="validator" class="form-horizontal form-label-left" onsubmit="SaveClient();return false;">
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-name">Client Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientname">Client Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="client-name" name="client-name" class="form-control col-md-7 col-xs-12" required>
+                            <input type="text" id="clientname" name="clientname" class="form-control col-md-7 col-xs-12" placeholder="Client Name" required>
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-phno">Mobile No <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientphno">Mobile No <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" id="client-phno" name="client-phno" placeholder="90000000" min="11" class="form-control col-md-7 col-xs-12" required>
+                            <input type="number" id="clientphno" name="clientphno" placeholder="90000000" min="11" class="form-control col-md-7 col-xs-12" required>
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-address">Address
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientaddress">Address
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea class="form-control" rows="5" id="client-address" name="client-address" ></textarea>
+                            <textarea class="form-control" rows="5" id="clientaddress" name="clientaddress" placeholder="Address for communication" ></textarea>
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-casetype">Type
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientcasetype">Type
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="form-control" id="client-casetype" name="client-casetype">
+                            <select class="form-control" id="clientcasetype" name="clientcasetype">
                                 <option value="CIVIL">Civil</option>
                                 <option value="CRIMINAL">Criminal</option>
                                 <option value="INSURANCE">Insurance</option>
@@ -62,34 +62,42 @@
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-totalamount">Total Amount
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clienttotalamount">Total Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="client-totalamount" name="client-totalamount" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clienttotalamount" name="clienttotalamount" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-paidamount">Paid Amount
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientpaidamount">Paid Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="client-paidamount" name="client-paidamount" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientpaidamount" name="clientpaidamount" placeholder="Paid Amount" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-balamount">Bal Amount
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientbalamount">Bal Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="client-balamount" name="client-balamount" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientbalamount" name="clientbalamount" placeholder="Bal Amount" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="client-hearingdate">Hearing Date
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientcasestage">Case Stage
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="client-hearingdate" name="client-hearingdate" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientcasestage" name="clientcasestage" placeholder="Case Stage" class="form-control col-md-7 col-xs-12">
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clienthearingdate">Hearing Date
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="clienthearingdate" name="clienthearingdate" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
