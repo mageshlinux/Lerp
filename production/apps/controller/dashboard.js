@@ -8,8 +8,8 @@ $(document).ready(function() {
     $("#Logspan").text(UserData.USERNAME);
 });
 
-function CallForm() {
-    $("#MainContainer").load("apps/view/sample.html", function (responseText, textStatus, XMLHttpRequest) {
+function CallForm(path) {
+    $("#MainContainer").load(path, function (responseText, textStatus, XMLHttpRequest) {
         $('.collapse-link').on('click', function() {
             var $BOX_PANEL = $(this).closest('.x_panel'),
                 $ICON = $(this).find('i'),
