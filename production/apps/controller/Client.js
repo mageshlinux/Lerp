@@ -12,7 +12,6 @@ $(document).ready(function() {
 function SaveClient()
 {
     var data = $("#ClientForm").serialize();
-    alert(data)
     NProgress.start();
     $.ajax({
 

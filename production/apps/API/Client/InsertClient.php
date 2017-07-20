@@ -13,6 +13,11 @@ if($_POST)
     $clientbalamount = $_POST['clientbalamount'];
     $clientcasestage = $_POST['clientcasestage'];
     $clienthearingdate = $_POST['clienthearingdate'];
+    $clienthearingdate=str_replace("/","-",$clienthearingdate);
+    $date=date_create($clienthearingdate);
+    $clienthearingdate= date_format($date,"Y/m/d H:i:s");
+
+    echo (date_create("19/JULY/2017"));
 
     try
     {
