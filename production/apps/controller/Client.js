@@ -8,6 +8,9 @@ $(document).ready(function() {
         startDate: moment(),
         locale:{format: 'DD/MMM/YYYY'}
     });
+    //alert($.datepicker.formatDate('dd/M/yy', new Date("20/07/2017")))
+    var date = moment(); //Get the current date
+    //alert(date.format("DD/MMM/YYYY"))
 });
 function SaveClient()
 {
@@ -74,7 +77,9 @@ function FindClientName(name)
                 $("#clientpaidamount").val(data.PAIDAMOUNT);
                 $("#clientbalamount").val(data.BALANCEAMOUNT);
                 $("#clientcasestage").val(data.CASESTAGE);
-                $("#clienthearingdate").val(data.HEARINGDATE);
+                var date = moment(data.HEARINGDATE); //Get the current date
+                date=(date.format("DD/MMM/YYYY"));
+                $("#clienthearingdate").val(date);
             NProgress.done();
 
             //}
