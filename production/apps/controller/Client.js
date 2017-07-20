@@ -63,17 +63,19 @@ function FindClientName(name)
         {
 
             data=JSON.parse(data);
+
             //if(data.length>0){
-            alert(data.clientphno)
-                $("#clientname").val(data.clientname);
-                $("#clientphno").val(data.clientphno);
-                $("#clientaddress").val(data.clientaddress);
-                $("#clientcasetype").val(data.clientcasetype);
-                $("#clienttotalamount").val(data.clienttotalamount);
-                $("#clientpaidamount").val(data.clientpaidamount);
-                $("#clientbalamount").val(data.clientbalamount);
-                $("#clientcasestage").val(data.clientcasestage);
-                $("#clienthearingdate").val(data.clienthearingdate);
+
+                $("#clientname").val(data.CLIENTNAME);
+                $("#clientphno").val(data.PHNO);
+                $("#clientaddress").val(data.ADDRESS);
+                $("#clientcasetype").val(data.CASETYPE);
+                $("#clienttotalamount").val(data.TOTALAMOUNT);
+                $("#clientpaidamount").val(data.PAIDAMOUNT);
+                $("#clientbalamount").val(data.BALANCEAMOUNT);
+                $("#clientcasestage").val(data.CASESTAGE);
+                $("#clienthearingdate").val(data.HEARINGDATE);
+            NProgress.done();
 
             //}
 
