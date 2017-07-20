@@ -28,7 +28,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientname">Client Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clientname" name="clientname" class="form-control col-md-7 col-xs-12" placeholder="Client Name" required>
+                            <input type="text" id="clientname" name="clientname" onblur="FindClientName(this);" class="form-control col-md-7 col-xs-12" placeholder="Client Name" required>
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>

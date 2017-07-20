@@ -46,3 +46,41 @@ function SaveClient()
     });
     return false;
 }
+function FindClientName(name)
+{
+    var data = $("#ClientForm").serialize();
+    NProgress.start();
+    $.ajax({
+
+        type : 'POST',
+        url  : 'apps/API/Client/PickClient.php',
+        data : data,
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+            data=JSON.parse(data);
+            //if(data.length>0){
+            alert(data.clientphno)
+                $("#clientname").val(data.clientname);
+                $("#clientphno").val(data.clientphno);
+                $("#clientaddress").val(data.clientaddress);
+                $("#clientcasetype").val(data.clientcasetype);
+                $("#clienttotalamount").val(data.clienttotalamount);
+                $("#clientpaidamount").val(data.clientpaidamount);
+                $("#clientbalamount").val(data.clientbalamount);
+                $("#clientcasestage").val(data.clientcasestage);
+                $("#clienthearingdate").val(data.clienthearingdate);
+
+            //}
+
+            /*else if(data.length==0){
+                NProgress.done();
+            }*/
+        }
+    });
+    return false;
+}
