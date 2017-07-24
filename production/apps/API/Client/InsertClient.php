@@ -17,7 +17,17 @@ if($_POST)
     $date=date_create($clienthearingdate);
     $clienthearingdate= date_format($date,"Y/m/d H:i:s");
 
-    echo (date_create("19/JULY/2017"));
+    $fileName = $_FILES['Attach']['name'];
+    $tmpName  = $_FILES['Attach']['tmp_name'];
+    $fileSize = $_FILES['Attach']['size'];
+    $fileType = $_FILES['Attach']['type'];
+
+    $fp      = fopen($tmpName, 'r');
+    $content = fread($fp, filesize($tmpName));
+    $content = addslashes($content);
+    fclose($fp);
+
+    //echo (date_create("19/JULY/2017"));
 
     try
     {
@@ -28,7 +38,7 @@ if($_POST)
 
         if($count==0){
 
-            $stmt = $db_con->prepare("INSERT INTO client (CLIENTNAME, PHNO, ADDRESS, CASETYPE, ATTACHMENT, TOTALAMOUNT, PAIDAMOUNT, BALANCEAMOUNT, CASESTAGE, HEARINGDATE) VALUES(:clientname, :clientphno, :clientaddress, :clientcasetype, 0x44454D4F, :clienttotalamount, :clientpaidamount, :clientbalamount, :clientcasestage, :clienthearingdate)");
+            $stmt = $db_con->prepare("INSERT INTO client (CLIENTNAME, PHNO, ADDRESS, CASETYPE, ATTACHMENT, TOTALAMOUNT, PAIDAMOUNT, BALANCEAMOUNT, CASESTAGE, HEARINGDATE) VALUES(:clientname, :clientphno, :clientaddress, :clientcasetype, $content, :clienttotalamount, :clientpaidamount, :clientbalamount, :clientcasestage, :clienthearingdate)");
             $stmt->bindParam(":clientname",$clientname);
             $stmt->bindParam(":clientphno",$clientphno);
             $stmt->bindParam(":clientaddress",$clientaddress);
@@ -37,6 +47,7 @@ if($_POST)
             $stmt->bindParam(":clientpaidamount",$clientpaidamount);
             $stmt->bindParam(":clientbalamount",$clientbalamount);
             $stmt->bindParam(":clientcasestage",$clientcasestage);
+            $stmt->bindParam(":content",$content);
             $stmt->bindParam(":clienthearingdate",$clienthearingdate);
 
             if($stmt->execute())

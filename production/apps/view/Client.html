@@ -22,7 +22,7 @@
             </div>
             <div class="x_content">
                 <br />
-                <form id="ClientForm" data-toggle="validator" class="form-horizontal form-label-left" onsubmit="SaveClient();return false;">
+                <form id="ClientForm" method="post" enctype="multipart/form-data" data-toggle="validator" class="form-horizontal form-label-left" onsubmit="SaveClient();return false;">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientname">Client Name <span class="required">*</span>
@@ -60,6 +60,13 @@
                             </select>
                         </div>
                         <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientcasetype">Attachment
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="file" name="Attach" id="Attach"/>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clienttotalamount">Total Amount

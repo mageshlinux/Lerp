@@ -19,6 +19,10 @@ if($_POST) {
         // do something
         echo json_encode($check);
     }
+    else
+    {
+        echo 0;
+    }
 
 }
 ?>

@@ -14,7 +14,14 @@ $(document).ready(function() {
 });
 function SaveClient()
 {
-    var data = $("#ClientForm").serialize();
+    var data = $("#ClientForm").serializeArray();
+    var file_data = $("#Attach").prop("files")[0];
+    var form_data = new FormData();
+    form_data.append("file", file_data)
+    alert(form_data)
+    var strr={"name":"Attach","value":form_data};
+    data.push(strr);
+    alert(JSON.stringify(data))
     NProgress.start();
     $.ajax({
 
@@ -65,10 +72,8 @@ function FindClientName(name)
         success :  function(data)
         {
 
-            data=JSON.parse(data);
-
-            //if(data.length>0){
-
+            if(data!=0) {
+                data = JSON.parse(data);
                 $("#clientname").val(data.CLIENTNAME);
                 $("#clientphno").val(data.PHNO);
                 $("#clientaddress").val(data.ADDRESS);
@@ -78,9 +83,15 @@ function FindClientName(name)
                 $("#clientbalamount").val(data.BALANCEAMOUNT);
                 $("#clientcasestage").val(data.CASESTAGE);
                 var date = moment(data.HEARINGDATE); //Get the current date
-                date=(date.format("DD/MMM/YYYY"));
+                date = (date.format("DD/MMM/YYYY"));
                 $("#clienthearingdate").val(date);
-            NProgress.done();
+                NProgress.done();
+            }
+            else
+            {
+                NProgress.done();
+                return false;
+            }
 
             //}
 
