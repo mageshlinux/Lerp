@@ -20,15 +20,15 @@ $mail->SMTPSecure = "tls";
 $mail->Port = 587;                                   
 
 $mail->From = "lawerp17@gmail.com";
-$mail->FromName = "Law";
+$mail->FromName = "LAW ERP Notifications";
 
-$mail->addAddress("gdeepak8822@gmail.com", "Test");
+$mail->addAddress("gdeepak8822@gmail.com", "Test mail notification");
 
-$mail->isHTML(true);
+//$mail->isHTML(true);
 
 $mail->Subject = "Subject Text";
-$mail->Body = "<i>Mail body in HTML</i>";
-$mail->AltBody = "This is the plain text version of the email content";
+$mail->Body = "test";
+//$mail->AltBody = "This is the plain text version of the email content";
 
 if(!$mail->send()) 
 {
