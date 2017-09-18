@@ -72,7 +72,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clienttotalamount">Total Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clienttotalamount" name="clienttotalamount" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clienttotalamount" name="clienttotalamount" value="0" placeholder="Total Amount" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -80,7 +80,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientpaidamount">Paid Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clientpaidamount" name="clientpaidamount" placeholder="Paid Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientpaidamount" name="clientpaidamount" value="0" placeholder="Paid Amount" class="form-control col-md-7 col-xs-12" onblur="Calculatebal(this);">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -88,7 +88,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientbalamount">Bal Amount
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clientbalamount" name="clientbalamount" placeholder="Bal Amount" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientbalamount" name="clientbalamount" value="0" placeholder="Bal Amount" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -96,7 +96,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="clientcasestage">Case Stage
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="clientcasestage" name="clientcasestage" placeholder="Case Stage" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="clientcasestage" name="clientcasestage" placeholder="Case Stage (Eg. 1,2,3,4...)" class="form-control col-md-7 col-xs-12">
                         </div>
                         <div class="help-block with-errors"></div>
                     </div>
@@ -112,8 +112,10 @@
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <!--<button class="btn btn-primary" type="button">Cancel</button>-->
-                            <button type="submit" class="btn btn-success">Save</button>
-                            <button class="btn btn-primary" type="reset">Reset</button>
+                            <button type="submit" class="btn btn-success" id="ClientSave">Save</button>
+                            <button type="button" class="btn btn-info" id="ClientUpdate" onclick="UpdateClient();" style="display:none;">Update</button>
+                            <button type="button" class="btn btn-danger" id="ClientDelete" onclick="DeleteClient();" style="display:none;">Delete</button>
+                            <button class="btn btn-warning" type="reset" onclick="resetClients();">Reset</button>
                         </div>
                     </div>
 

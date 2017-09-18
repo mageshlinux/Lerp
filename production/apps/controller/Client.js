@@ -1,6 +1,7 @@
 /**
  * Created by Deepak on 7/19/2017.
  */
+var ClienObj=[];
 $(document).ready(function() {
     $('#ClientForm').validator();
     $('#clienthearingdate').daterangepicker({
@@ -73,7 +74,9 @@ function FindClientName(name)
         {
 
             if(data!=0) {
+
                 data = JSON.parse(data);
+                ClienObj=data;
                 $("#clientname").val(data.CLIENTNAME);
                 $("#clientphno").val(data.PHNO);
                 $("#clientaddress").val(data.ADDRESS);
@@ -85,6 +88,10 @@ function FindClientName(name)
                 var date = moment(data.HEARINGDATE); //Get the current date
                 date = (date.format("DD/MMM/YYYY"));
                 $("#clienthearingdate").val(date);
+                $("#clientphno").trigger("blur")
+                $("#ClientSave").css("display","none");
+                $("#ClientUpdate").css("display","inline-table");
+                $("#ClientDelete").css("display","inline-table");
                 NProgress.done();
             }
             else
@@ -98,6 +105,92 @@ function FindClientName(name)
             /*else if(data.length==0){
                 NProgress.done();
             }*/
+        }
+    });
+    return false;
+}
+function Calculatebal(idd)
+{
+    $("#clientbalamount").val($("#clienttotalamount").val()-idd.value);
+}
+function resetClients()
+{
+    $("#ClientSave").css("display","inline-table");
+    $("#ClientUpdate").css("display","none");
+    $("#ClientDelete").css("display","none");
+}
+function UpdateClient()
+{
+    var data = $("#ClientForm").serializeArray();
+    var file_data = $("#Attach").prop("files")[0];
+    var form_data = new FormData();
+    form_data.append("file", file_data)
+
+    var strr={"name":"ClientId","value":ClienObj.CLIENTID};
+     data.push(strr);
+
+
+    NProgress.start();
+    $.ajax({
+
+        type : 'POST',
+        url  : 'apps/API/Client/UpdateClient.php',
+        data : data,
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+            if(data=="Updated")
+            {
+                NProgress.done();
+                $.notify("Client Updated","success");
+                $('#ClientForm').get(0).reset();
+
+            }
+            else{
+                NProgress.done();
+                $.notify("Server encountered error.Please check with Administrator","error");
+
+            }
+        }
+    });
+    return false;
+}
+function DeleteClient()
+{
+    var data = $("#ClientForm").serializeArray();
+    var strr={"name":"ClientId","value":ClienObj.CLIENTID};
+    data.push(strr)
+
+
+    NProgress.start();
+    $.ajax({
+
+        type : 'POST',
+        url  : 'apps/API/Client/DeleteClient.php',
+        data : data,
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+            if(data=="Deleted")
+            {
+                NProgress.done();
+                $.notify("Client Deleted","success");
+                $('#ClientForm').get(0).reset();
+
+            }
+            else{
+                NProgress.done();
+                $.notify("Server encountered error.Please check with Administrator","error");
+
+            }
         }
     });
     return false;
