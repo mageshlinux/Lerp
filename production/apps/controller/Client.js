@@ -14,13 +14,13 @@ $(document).ready(function() {
 });
 function SaveClient()
 {
-    var data = $("#ClientForm").serializeArray();
+    var data = $("#ClientForm").serialize();
     var file_data = $("#Attach").prop("files")[0];
     var form_data = new FormData();
     form_data.append("file", file_data)
-    alert(form_data)
-    var strr={"name":"Attach","value":form_data};
-    data.push(strr);
+
+    /*var strr={"name":"Attach","value":form_data};
+    data.push(strr);*/
     alert(JSON.stringify(data))
     NProgress.start();
     $.ajax({
