@@ -6,6 +6,23 @@ $(document).ready(function() {
 
     $("#WelcomeSpan").text(UserData.USERNAME);
     $("#Logspan").text(UserData.USERNAME);
+
+    $.ajax({
+
+        type : 'POST',
+        url  : '../production/apps/API/UserCount.php',
+
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+
+            $("#TOTCLIENTUSERS").html(data)
+        }
+    });
 });
 
 function CallForm(path) {

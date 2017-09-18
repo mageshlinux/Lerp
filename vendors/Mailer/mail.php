@@ -22,7 +22,7 @@ $mail->Port = 587;
 $mail->From = "lawerp17@gmail.com";
 $mail->FromName = "LAW ERP Notifications";
 
-$mail->addAddress("gdeepak8822@gmail.com", "Test mail notification");
+$mail->addAddress("gdeepak8822@gmail.com", "Test mail notification123");
 
 //$mail->isHTML(true);
 
