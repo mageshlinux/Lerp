@@ -9,10 +9,15 @@ $(document).ready(function() {
     $('#ClientDetailss').DataTable({
         responsive: true
     });
+    TotalUserCount();
+
+});
+function TotalUserCount()
+{
     $.ajax({
 
         type : 'POST',
-        url  : '../production/apps/API/UserCount.php',
+        url  : '../production/apps/API/Client/UserCount.php',
 
         beforeSend: function()
         {
@@ -25,9 +30,48 @@ $(document).ready(function() {
             $("#TOTCLIENTUSERS").html(data)
         }
     });
-    callClientGrid();
-});
+    PaidUserCount();
+}
+function PaidUserCount()
+{
+    $.ajax({
 
+        type : 'POST',
+        url  : '../production/apps/API/Client/PaidUserCount.php',
+
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+
+            $("#PaidCountCnt").html(data)
+        }
+    });
+    UnPaidUserCount();
+}
+function UnPaidUserCount()
+{
+    $.ajax({
+
+        type : 'POST',
+        url  : '../production/apps/API/Client/UnPaidUserCount.php',
+
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+
+            $("#UnPaidCountCnt").html(data)
+        }
+    });
+    callClientGrid();
+}
 function CallForm(path) {
     $("#MainContainer").load(path, function (responseText, textStatus, XMLHttpRequest) {
         $('.collapse-link').on('click', function() {
