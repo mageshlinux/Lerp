@@ -6,7 +6,9 @@ $(document).ready(function() {
 
     $("#WelcomeSpan").text(UserData.USERNAME);
     $("#Logspan").text(UserData.USERNAME);
-
+    $('#ClientDetailss').DataTable({
+        responsive: true
+    });
     $.ajax({
 
         type : 'POST',
@@ -23,6 +25,7 @@ $(document).ready(function() {
             $("#TOTCLIENTUSERS").html(data)
         }
     });
+    callClientGrid();
 });
 
 function CallForm(path) {
@@ -52,5 +55,47 @@ function CallForm(path) {
         });
 
 
+    });
+}
+function callClientGrid()
+{
+    $.ajax({
+
+        type : 'GET',
+        url  : 'apps/API/Client/ClientGrid.php',
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+            if(data!=0) {
+                data = JSON.parse(data);
+                var tnt=1;
+                    for(i in data)
+                    {
+                        var hrdate=new Date(data[i].HEARINGDATE);
+                        $('#ClientDetailss').DataTable().row.add([
+                            ''+tnt+'',
+                            ''+data[i].CLIENTNAME+'',
+                            ''+data[i].PHNO+'',
+                            ''+data[i].ADDRESS+'',
+                            ''+data[i].CASETYPE+'',
+                            ''+data[i].TOTALAMOUNT+'',
+                            ''+data[i].PAIDAMOUNT+'',
+                            ''+data[i].BALANCEAMOUNT+'',
+                            ''+data[i].CASESTAGE+'',
+                            ''+DateFormat(hrdate, "dd/mmm/yyyy")+'',
+                        ]).draw(false);
+                        tnt++;
+                    }
+            }
+            else
+            {
+
+                return false;
+            }
+        }
     });
 }
