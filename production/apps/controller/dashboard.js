@@ -6,9 +6,9 @@ $(document).ready(function() {
 
     $("#WelcomeSpan").text(UserData.USERNAME);
     $("#Logspan").text(UserData.USERNAME);
-    $('#ClientDetailss').DataTable({
+    /*$('#ClientDetailss').DataTable({
         responsive: true
-    });
+    });*/
     TotalUserCount();
 
 });
@@ -70,7 +70,7 @@ function UnPaidUserCount()
             $("#UnPaidCountCnt").html(data)
         }
     });
-    callClientGrid();
+    //callClientGrid();
 }
 function CallForm(path) {
     $("#MainContainer").load(path, function (responseText, textStatus, XMLHttpRequest) {

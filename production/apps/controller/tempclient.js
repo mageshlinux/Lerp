@@ -19,7 +19,7 @@ function SaveClient()
     var file_data = $("#Attach").prop("files")[0];
     var form_data = new FormData();
     form_data.append("file", file_data)
-    var strr={"name":"clienttype","value":"PER"};
+    var strr={"name":"clienttype","value":"TEMP"};
     data.push(strr);
     /*var strr={"name":"Attach","value":form_data};
     data.push(strr);*/
@@ -129,6 +129,7 @@ function UpdateClient()
 
     var strr={"name":"ClientId","value":ClienObj.CLIENTID};
      data.push(strr);
+
     var strr1={"name":"clienttype","value":"TEMP"};
     data.push(strr1);
 

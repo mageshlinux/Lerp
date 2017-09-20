@@ -25,7 +25,7 @@ if($_POST)
     $clienthearingdate=str_replace("/","-",$clienthearingdate);
     $date=date_create($clienthearingdate);
     $clienthearingdate= date_format($date,"Y/m/d H:i:s");
-
+    $clienttype = $_POST['clienttype'];
     /*$fileName = $_FILES['Attach']['name'];
     $tmpName  = $_FILES['Attach']['tmp_name'];
     $fileSize = $_FILES['Attach']['size'];
@@ -44,7 +44,7 @@ if($_POST)
 
 
 
-            $stmt = $db_con->prepare("update client set CLIENTNAME=:clientname, PHNO=:clientphno, ADDRESS=:clientaddress, CASETYPE=:clientcasetype, ATTACHMENT=:content, TOTALAMOUNT=:clienttotalamount, PAIDAMOUNT=:clientpaidamount, BALANCEAMOUNT=:clientbalamount, CASESTAGE=:clientcasestage, HEARINGDATE=:clienthearingdate where clientid=:clientid ");
+            $stmt = $db_con->prepare("update client set CLIENTNAME=:clientname, PHNO=:clientphno, ADDRESS=:clientaddress, CASETYPE=:clientcasetype, ATTACHMENT=:content, TOTALAMOUNT=:clienttotalamount, PAIDAMOUNT=:clientpaidamount, BALANCEAMOUNT=:clientbalamount, CASESTAGE=:clientcasestage, HEARINGDATE=:clienthearingdate ,TYPECLIENT=:clienttype where clientid=:clientid ");
             $stmt->bindParam(":clientname",$clientname);
             $stmt->bindParam(":clientphno",$clientphno);
             $stmt->bindParam(":clientaddress",$clientaddress);
@@ -55,6 +55,7 @@ if($_POST)
             $stmt->bindParam(":clientcasestage",$clientcasestage);
             $stmt->bindParam(":content",$content);
             $stmt->bindParam(":clienthearingdate",$clienthearingdate);
+        $stmt->bindParam(":clienttype",$clienttype);
         $stmt->bindParam(":clientid",$clientid);
 
             if($stmt->execute())
