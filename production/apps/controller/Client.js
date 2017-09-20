@@ -23,7 +23,7 @@ function SaveClient()
     data.push(strr);
     /*var strr={"name":"Attach","value":form_data};
     data.push(strr);*/
-    alert(JSON.stringify(data))
+
     NProgress.start();
     $.ajax({
 
