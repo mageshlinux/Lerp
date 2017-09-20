@@ -3,15 +3,15 @@
  */
 $(document).ready(function() {
 
-    $('#PaidClientDetails').DataTable({
-     responsive: true
-     });
+    $('#UnPaidClientDetails').DataTable({
+        responsive: true
+    });
 
-    callPaidClientGrid();
+    callUnPaidClientGrid();
 });
-function callPaidClientGrid()
+function callUnPaidClientGrid()
 {
-    var data=[{"name":"stmt","value":"select * from client where clientid<>-1 and balanceamount=0"}];
+    var data=[{"name":"stmt","value":"select * from client where clientid<>-1 and balanceamount<>0"}];
     $.ajax({
 
         type : 'POST',
@@ -30,7 +30,7 @@ function callPaidClientGrid()
                 for(i in data)
                 {
                     var hrdate=new Date(data[i].HEARINGDATE);
-                    $('#PaidClientDetails').DataTable().row.add([
+                    $('#UnPaidClientDetails').DataTable().row.add([
                         ''+tnt+'',
                         ''+data[i].CLIENTNAME+'',
                         ''+data[i].PHNO+'',
