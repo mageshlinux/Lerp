@@ -224,6 +224,11 @@
                     <div class="count" id="UnPaidCountCnt">0</div>
                     <!--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>-->
                 </div>
+                <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <span class="count_top"><i class="fa fa-user"></i> Temp. Clients</span>
+                    <div class="count" id="TempClientCountCnt">0</div>
+                    <!--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>-->
+                </div>
             </div>
 <div class="row">
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer" onclick="CallForm('apps/view/Client.html');">
@@ -236,27 +241,31 @@
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="CallForm('apps/view/Grid/paidclient.html');">
         <div class="tile-stats">
-            <div class="count">Paid</div>
+            <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+            <div class="count" style="font-family: 'Times New Roman'">Paid</div>
             <h3>Client List</h3>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="CallForm('apps/view/Grid/unpaidclient.html');">
         <div class="tile-stats">
-            <div class="count">UnPaid</div>
+            <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+            <div class="count" style="font-family: 'Times New Roman'">UnPaid</div>
             <h3>Client List</h3>
         </div>
     </div>
 </div>
             <div class="row">
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="CallForm('apps/view/Grid/TempClientGrid.html');">
         <div class="tile-stats">
-            <div class="count">Temp. Client</div>
+
+            <div class="count" style="font-family: 'Times New Roman'">Temp. Client</div>
             <h3>Temporary Client List</h3>
         </div>
     </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="CallForm('apps/view/Grid/TodayCaseList.html');">
         <div class="tile-stats">
-            <div class="count">Today Case</div>
+
+            <div class="count" style="font-family: 'Times New Roman'">Today Case</div>
             <h3>Today's Case List</h3>
         </div>
     </div>

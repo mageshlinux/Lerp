@@ -70,7 +70,35 @@ function UnPaidUserCount()
             $("#UnPaidCountCnt").html(data)
         }
     });
+    TempClientCount();
     //callClientGrid();
+}
+function TempClientCount()
+{
+    var data=[{"name":"stmt","value":"select * from client where clientid<>-1 and typeclient='TEMP'"}];
+    $.ajax({
+
+        type : 'POST',
+        url  : 'apps/API/Grid/clientapi.php',
+        data : data,
+        beforeSend: function()
+        {
+
+        },
+        success :  function(data)
+        {
+
+            if(data!=0) {
+                data = JSON.parse(data);
+                $("#TempClientCountCnt").html(data.length);
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+    });
 }
 function CallForm(path) {
     $("#MainContainer").load(path, function (responseText, textStatus, XMLHttpRequest) {
